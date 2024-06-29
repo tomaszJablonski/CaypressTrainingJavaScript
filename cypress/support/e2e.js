@@ -18,3 +18,8 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+beforeEach(function () {
+    cy.log('I am inside e2e.js');
+    // cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+})

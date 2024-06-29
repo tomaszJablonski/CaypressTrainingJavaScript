@@ -5,24 +5,24 @@ export class LoginPage {
     loginButton = '.oxd-button'
 
     login(username,password){
-        cy.get(usernameTextBox).type(username)
-        cy.get(passwordTextBox).type(password)
-        cy.get(loginButton).click() 
+        cy.get(this.usernameTextBox).type(username)
+        cy.get(this.passwordTextBox).type(password)
+        cy.get(this.loginButton).click() 
     }
 
-    // enterUsername(username){
-    //     cy.get(usernameTextBox)
-    //     .type(username)
+    enterUsername(username){
+        cy.get(this.usernameTextBox)
+        .type(username)
     
-    // }
+    }
 
-    // enterPasword(password){
-    //     cy.get(passwordTextBox)
-    //     .type(password)
+    enterPasword(password){
+        cy.get(this.passwordTextBox)
+        .type(password)
 
-    // }
+    }
 
-    // clickLogin() {
-    //     cy.get(this.loginButton).click()    
-    // }
+    clickLogin() {
+        cy.get(this.loginButton).click()    
+    }
 }
