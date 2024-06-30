@@ -20,7 +20,7 @@ describe('All login tests', function () {
     })
 
     it('login test 2 - invalid username', function () {
-        loginPage.enterUsername('Admin5')
+        loginPage.enterUsername('Admin')
         loginPage.enterPasword('admin123')
         loginPage.clickLogin()
         // loginPage.login('Admin','admin123')
@@ -30,7 +30,7 @@ describe('All login tests', function () {
 
 it('login test 3 - invalid password', function () {
     loginPage.enterUsername('Admin')
-    loginPage.enterPasword('admin456')
+    loginPage.enterPasword('admin123')
     loginPage.clickLogin()
     // loginPage.login('Admin','admin123')
     cy.get('.oxd-userdropdown-tab').click()
