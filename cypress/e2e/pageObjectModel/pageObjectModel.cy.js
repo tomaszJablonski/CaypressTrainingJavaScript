@@ -1,3 +1,5 @@
+/// <reference types = "cypress"/>
+
 import { LoginPage } from "../pageObjectModel/loginPage.cy"
 
 const loginPage = new LoginPage()

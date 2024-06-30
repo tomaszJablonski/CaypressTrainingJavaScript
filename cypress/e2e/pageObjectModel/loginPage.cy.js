@@ -1,3 +1,5 @@
+/// <reference types = "cypress"/>
+
 export class LoginPage {
 
     usernameTextBox = ':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input'

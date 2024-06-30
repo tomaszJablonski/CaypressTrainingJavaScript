@@ -1,3 +1,4 @@
+/// <reference types = "cypress"/>
 it('Assertions', ()=> {
     cy.visit('https://example.cypress.io')
     cy.contains('get').click()

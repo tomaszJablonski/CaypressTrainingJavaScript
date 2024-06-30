@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest" : "echo I am Pre Test",
-    "posttest" : "echo I am Post Test",
+    "pretest": "echo I am Pre Test",
+    "posttest": "echo I am Post Test",
     "test": "echo I am the test",
     "cypress:run": "CYPRESS_RECORD_KEY=5ba6d829-0deb-4a8a-aa09-e42d7073c293 cypress run --record",
-    "hello" : "echo Hello world",
-    "cypressAllTests" : "cypress run"
+    "hello": "echo Hello world",
+    "cypressAllTests": "cypress run"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "cypress-file-upload": "^5.0.8",
     "cypress-xpath": "^2.0.1"
   }
 }
