@@ -2,7 +2,7 @@ const cypress = require("cypress");
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  projectId: 'mfsg7o',
+  projectId: "mfsg7o",
   e2e: {
     setupNodeEvents(on, config) {
       // defaultCommandTimeout :3000 - to jest globalny time out
@@ -15,5 +15,5 @@ module.exports = defineConfig({
     },
   },
   record: true, // dodaj ustawienie rekordowania
-    key: '1' // dodaj klucz rekordowania
+    key: 'your-record-key' // dodaj klucz rekordowania
 });
