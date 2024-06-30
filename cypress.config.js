@@ -15,5 +15,5 @@ module.exports = defineConfig({
     },
   },
   record: true, // dodaj ustawienie rekordowania
-    key: 'your-record-key' // dodaj klucz rekordowania
+    key: '5ba6d829-0deb-4a8a-aa09-e42d7073c293' // dodaj klucz rekordowania
 });
