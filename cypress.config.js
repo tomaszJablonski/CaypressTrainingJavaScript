@@ -1,5 +1,6 @@
 const cypress = require("cypress");
 const { defineConfig } = require("cypress");
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin');
 
 module.exports = defineConfig({
   projectId: "mfsg7o",
@@ -12,6 +13,7 @@ module.exports = defineConfig({
       // implement node event listeners here
       video : true
       trashAssetsBeforeRuns : true
+      on('task', {downloadFile})
     },
   },
   record: true, // dodaj ustawienie rekordowania
