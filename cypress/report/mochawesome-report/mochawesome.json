@@ -1,0 +1,87 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-07-04T18:53:22.992Z",
+    "end": "2024-07-04T18:53:25.352Z",
+    "duration": 2360,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f0eee890-682d-4426-b081-01c48c32881e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\assertions.cy.js",
+      "file": "cypress\\e2e\\assertions.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Assertions",
+          "fullTitle": "Assertions",
+          "timedOut": null,
+          "duration": 737,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('https://example.cypress.io');\ncy.contains('get').click();\ncy.get('#query-btn')\n//Assercja Implicit\n//1)should-contain - powinien zawierać tekst\n.should('contain', 'Button')\n//2)should-have - kalsa/id/string itd. powinien mieć dany atrybut\n//have.text,have.html też może być\n.should('have.id', 'query-btn')\n//3)should-be - powinien być\n/*.should('be.visible') \n  .should('be.selected') \n  .should('be.disabled')\n  .should('be.enabled')\n  .should('be.focused') to samo co have.focus \n*/.should('be.visible').should('be.enabled')\n//4)and - łączenie asercji,zamiast używać should \n//to wystarczy raz napisać should a potem and\n.should('contain', 'Button').and('have.id', 'query-btn').and('be.visible').and('be.enabled')\n//5)should-equal - czyli powinno zawierać\n.invoke('attr', 'id').should('equal', 'query-btn');\n//Assertion Explicit\n//1)expect - oczekuje true or false\nexpect(true).to.be.true;\n/* \nMożna używac zmiennych i sprawdzać czy dana wartość się zgadza\nnp.\nlet name = 'cypress'\nexpect(name).to.be.equal('cypress')\ninne wariany\n            .to.not.equal()\n            .to.be.a('string')\n            .to.be.true\n            .to.be.false\n            .to.be.null\n            .to.exist\n*/\n//2)assert np. assert.equal \n//assert.equal(4,5,'NOT EQUAL')\n//czyli czy liczba 4 i 5 nie są równe\n//assert.equal(param,param2,'wiadomość która się wyświetli jeżeli warunek nie zostanie spełniony')\nassert.equal(4, '4', 'NOT EQUAL');\n/*\nróżnica między jednym a drugim jest taka, \nże w equal porównuje inty ze stringiem i nie ma z tym problemu\nale w strictEqual dwa różne typy zawsze dadzą ujemny wynik\nassert.strictEqual(4,'4','NOT EQUAL') - zwróci NOT EQUAL\n*/\nassert.strictEqual(4, 4, 'NOT EQUAL');\n/* \ninne warianty\n      .notEqual - \n      assert.notEqual(actual, expected, message) sprawdza, czy dwie wartości nie są równe (z przekształceniem typów).\n      assert.notEqual(4, '5', 'Values are equal'); // Przejdzie pomyślnie\n      assert.notEqual(4, '4', 'Values are equal'); // Nie przejdzie i wyświetli wiadomość\n      \n      .strictEqual -\n      assert.strictEqual(actual, expected, message) sprawdza, czy dwie wartości są ściśle równe (bez przekształcenia typów).\n      assert.strictEqual(4, 4, 'Values are not strictly equal'); // Przejdzie pomyślnie\n      assert.strictEqual(4, '4', 'Values are not strictly equal'); // Nie przejdzie i wyświetli wiadomość\n        .isAbove -\n      assert.isAbove(valueToCheck, valueToBeAbove, message) sprawdza, czy pierwsza wartość jest większa od drugiej.\n      assert.isAbove(10, 5, 'Value is not above the expected value'); // Przejdzie pomyślnie\n      assert.isAbove(3, 5, 'Value is not above the expected value'); // Nie przejdzie i wyświetli wiadomość\n        .isBelow -\n      assert.isBelow(valueToCheck, valueToBeBelow, message) sprawdza, czy pierwsza wartość jest mniejsza od drugiej.\n      assert.isBelow(3, 5, 'Value is not below the expected value'); // Przejdzie pomyślnie\n      assert.isBelow(10, 5, 'Value is not below the expected value'); // Nie przejdzie i wyświetli wiadomość\n        .exists - \n      assert.exists(value, message) sprawdza, czy wartość nie jest null ani undefined.\n      assert.exists('Hello', 'Value does not exist'); // Przejdzie pomyślnie\n      assert.exists(null, 'Value does not exist'); // Nie przejdzie i wyświetli wiadomość\n        .notExists - \n      assert.notExists(value, message) sprawdza, czy wartość jest null lub undefined.\n      assert.notExists(null, 'Value exists'); // Przejdzie pomyślnie\n      assert.notExists('Hello', 'Value exists'); // Nie przejdzie i wyświetli wiadomość\n        .istrue - \n      assert.isTrue(value, message) sprawdza, czy wartość jest true.\n      assert.isTrue(true, 'Value is not true'); // Przejdzie pomyślnie\n      assert.isTrue(false, 'Value is not true'); // Nie przejdzie i wyświetli wiadomość\n        .isfalse - \n      assert.isFalse(value, message) sprawdza, czy wartość jest false.\n      assert.isFalse(false, 'Value is not false'); // Przejdzie pomyślnie\n      assert.isFalse(true, 'Value is not false'); // Nie przejdzie i wyświetli wiadomość\n        .isString - \n      assert.isString(value, message) sprawdza, czy wartość jest typu string.\n      assert.isString('Hello', 'Value is not a string'); // Przejdzie pomyślnie\n      assert.isString(123, 'Value is not a string'); // Nie przejdzie i wyświetli wiadomość\n        .isNotString - \n      assert.isNotString(value, message) sprawdza, czy wartość nie jest typu string.\n      assert.isNotString(123, 'Value is a string'); // Przejdzie pomyślnie\n      assert.isNotString('Hello', 'Value is a string'); // Nie przejdzie i wyświetli wiadomość\n        .isNumber - \n      assert.isNumber(value, message) sprawdza, czy wartość jest typu number.\n      assert.isNumber(123, 'Value is not a number'); // Przejdzie pomyślnie\n      assert.isNumber('Hello', 'Value is not a number'); // Nie przejdzie i wyświetli wiadomość\n        .isNotNumber - \n      assert.isNotNumber(value, message) sprawdza, czy wartość nie jest typu number.\n      assert.isNotNumber('Hello', 'Value is a number'); // Przejdzie pomyślnie\n      assert.isNotNumber(123, 'Value is a number'); // Nie przejdzie i wyświetli wiadomość\n  */",
+          "err": {},
+          "uuid": "3c0ac47b-0c76-4778-a835-55ae38a99948",
+          "parentUUID": "f0eee890-682d-4426-b081-01c48c32881e",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "3c0ac47b-0c76-4778-a835-55ae38a99948"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 737,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
